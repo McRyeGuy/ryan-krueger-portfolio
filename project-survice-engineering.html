@@ -158,7 +158,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
-    document.querySelectorAll('video').forEach(function(v) { v.load(); });
+    document.querySelectorAll('video').forEach(function(v) {
+      var nv = document.createElement('video');
+      for (var i = 0; i < v.attributes.length; i++) {
+        nv.setAttribute(v.attributes[i].name, v.attributes[i].value);
+      }
+      v.replaceWith(nv);
+      nv.load();
+    });
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);
