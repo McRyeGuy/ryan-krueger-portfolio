@@ -163,6 +163,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       for (var i = 0; i < v.attributes.length; i++) {
         nv.setAttribute(v.attributes[i].name, v.attributes[i].value);
       }
+      nv.controls = true;
+      nv.setAttribute('controls', '');
       v.replaceWith(nv);
       nv.load();
     });
