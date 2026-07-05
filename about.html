@@ -159,6 +159,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     var lsEl = document.getElementById('timeline-ms-lightsabers');
     if (lsEl) lsEl.setAttribute('src', 'assets/images/lightsabers.png');
+    var arEl = document.getElementById('timeline-college-arduino');
+    if (arEl) arEl.setAttribute('src', 'assets/images/arduino.png');
     document.querySelectorAll('image-slot').forEach(function(el) {
       var s = el.getAttribute('src') || '';
       if (!s || s.indexOf('uploads/') === 0) {
