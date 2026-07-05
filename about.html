@@ -157,10 +157,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
-    var lsEl = document.getElementById('timeline-ms-lightsabers');
-    if (lsEl) lsEl.setAttribute('src', 'assets/images/lightsabers.png');
-    var arEl = document.getElementById('timeline-college-arduino');
-    if (arEl) arEl.setAttribute('src', 'assets/images/arduino.png');
+    var photoOverrides = {
+      'timeline-ms-lightsabers': 'assets/images/lightsabers.png',
+      'timeline-college-arduino': 'assets/images/arduino.png',
+      'timeline-ms-computers': 'assets/images/computers.png',
+      'timeline-ms-rc': 'assets/images/rc.png',
+      'timeline-scouts': 'assets/images/scouts.png',
+      'timeline-hs-cyber': 'assets/images/cyber.png',
+      'timeline-hs-3dprint': 'assets/images/hs-3dprint.png',
+      'timeline-hs-turo': 'assets/images/hs-turo.png',
+      'timeline-hs-classes': 'assets/images/hs-classes.png',
+      'timeline-hs-derby': 'assets/images/derby.png',
+      'timeline-seabase': 'assets/images/seabase.png',
+      'timeline-philmont': 'assets/images/philmont.png'
+    };
+    Object.keys(photoOverrides).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.setAttribute('src', photoOverrides[id]);
+    });
     document.querySelectorAll('image-slot').forEach(function(el) {
       var s = el.getAttribute('src') || '';
       if (!s || s.indexOf('uploads/') === 0) {
